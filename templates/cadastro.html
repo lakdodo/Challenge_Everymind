@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+<body>
+  <div class="container">
+        <h1>Faça seu Cadastro</h1>
+        {% set mensagens = get_flashed_messages() %}
+        {% if mensagens %}
+            <div>
+                {% for msg in mensagens %}
+                    {{ msg }}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form method="POST" action="/verificar">
+            <p><label>Nome Completo:</label> <input class="form-control" type="text" name="fullname" required></p>
+            <p><label>Nome de usuário:</label> <input class="form-control" type="text" name="usuario" required></p>
+            <p><label>Senha:</label> <input class="form-control" type="password" name="senha" required></p>
+            <p><label>Email:</label> <input class="form-control" type="email" name="email" required></p>
+            <p><label>CPF:</label> <input class="form-control" type="CPF" name="CPF" required></p>
+            <p><button class="btn btn-primary" type="submit">Cadastrar</button></p>
+        </form>
+  </div>
+</body>
+</html>
