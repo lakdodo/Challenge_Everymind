@@ -5,20 +5,22 @@ import os
 from pymongo import MongoClient
 from flask import render_template
 
-
+# Carregando credenciais para conexão
 load_dotenv((find_dotenv()))
 password = os.environ.get("MONGODB_PWD")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+# Estabelencendo conexão com banco de dados
 connection_string = f'mongodb+srv://lakdodo:{password}@everymind-challenge.7qpsqlq.mongodb.net/?retryWrites=true&w=majority'
-
 client = MongoClient(connection_string)
-dbs = client.list_database_names()
-usuarios_db = client.Usuarios
-collections = usuarios_db.list_collection_names()
 
+# Acessando nossa collections com os dados dos usuários
+usuarios_db = client.Usuarios
 collection = usuarios_db.Usuarios
 
+# Criando aplicação com rotas
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'teste'
+app.config['SECRET_KEY'] = f'{SECRET_KEY}'
 
 
 @app.route("/")

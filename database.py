@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from flask import redirect, flash, request, session
 
 
-# Carregando credenciais para conexão com MongoDB
+# Carregando credenciais para conexão
 load_dotenv((find_dotenv()))
 password = os.environ.get("MONGODB_PWD")
 
