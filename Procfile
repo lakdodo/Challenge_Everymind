@@ -1,1 +1,1 @@
-web: gunicorn app: main
+everymind_challenge: python "main.py"
